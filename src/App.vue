@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import FileUploader from './components/FileUploader.vue'
-import ThemeToggler from './components/ThemeToggler.vue'
+import FileUploader from './components/FileUploader.vue';
+import ThemeToggler from './components/ThemeToggler.vue';
 </script>
 
 <template>
@@ -13,7 +13,8 @@ import ThemeToggler from './components/ThemeToggler.vue'
   <div class="container py-4 px-3 mx-auto">
     <h1 class="mb-0">Infinite Descent</h1>
     <p class="lead mb-4">
-      A flight plan editing tool for creating optimized descent profiles in Infinite Flight
+      A flight plan editing tool for creating optimized descent profiles in
+      Infinite Flight
     </p>
     <FileUploader
       class="fpl-uploader"
