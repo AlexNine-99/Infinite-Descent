@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { classList } from '@/utils/class-list-construction'
 import { onMounted, reactive, ref, useTemplateRef } from 'vue'
 
 defineProps({
@@ -28,16 +29,28 @@ files.push('Example.fpl', 'AnotherExample.fpl')
   <div class="upload-container">
     <h4 class="mb-3">{{ title }}</h4>
     <div
-      :class="'drop-area text-center rounded p-4 mb-3' + (dragging ? ' dragging' : '')"
+      :class="
+        classList('drop-area text-center rounded p-4 mb-3', [
+          ['dragging', dragging],
+        ])
+      "
       @dragenter="dragging = true"
       @mouseleave="dragging = false"
       @dragover.prevent
       @drop.prevent="dragging = false"
     >
-      <button class="browse btn btn-primary mx-1 mb-1 px-2 py-1" @click="browseInput?.click()">
+      <button
+        class="browse btn btn-primary mx-1 mb-1 px-2 py-1"
+        @click="browseInput?.click()"
+      >
         Browse
       </button>
-      <input ref="browse-input" type="file" class="browse-input" :multiple="maxFileCount !== 0" />
+      <input
+        ref="browse-input"
+        type="file"
+        class="browse-input"
+        :multiple="maxFileCount !== 0"
+      />
       <p class="drag-option text-body-secondary m-0">or drag files here</p>
     </div>
     <div class="file-list">
